@@ -1,0 +1,1 @@
+ALTER TABLE add --then add the columns and types here but I created it with the correct columns and tables in the first place, see seed.sql
