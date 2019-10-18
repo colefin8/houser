@@ -1,0 +1,49 @@
+p {
+  width: 100%;
+  margin: 4px;
+  padding: 3px 0 3px 7px;
+  box-sizing: border-box;
+}
+
+h2 {
+  margin: 0;
+}
+
+.list {
+  width: 50%;
+  background-color: #e5f4ec;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+.textbox {
+  width: 75%;
+  background-color: #dedede;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttonbox {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.xbutton {
+  position: relative;
+  right: 4px;
+  display: inline-block;
+  background-color: #dedede;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+.preview {
+  width: 350px;
+  height: 184px;
+}

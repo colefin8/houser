@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import store from "../store";
+import { connect } from "react-redux";
+import { updateStore } from "../store";
 
 class StepTwo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      img: ""
-    };
+  componentDidMount() {
+    this.props.updateStore();
   }
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.props.updateStore({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -20,17 +18,40 @@ class StepTwo extends Component {
         <input
           placeholder="image url"
           name="img"
-          value={this.state.name}
+          value={this.props.img}
           onChange={e => {
             this.handleChange(e);
           }}
         />
+        <img
+          className="preview"
+          alt="house preview"
+          src={
+            this.props.img
+              ? this.props.img
+              : "http://securitysolutionsdubai.com/wp-content/uploads/2016/04/dummy-post-horisontal-thegem-blog-default-medium.jpg"
+          }
+        />
         <div>
           <Link to="/wizard/step1">
-            <button>Previous Step</button>
+            <button
+              onClick={() => {
+                console.log(this.props);
+                this.props.updateStore({ ...this.props });
+              }}
+            >
+              Previous Step
+            </button>
           </Link>
           <Link to="/wizard/step3">
-            <button>Next Step</button>
+            <button
+              onClick={() => {
+                console.log(this.props);
+                this.props.updateStore({ ...this.props });
+              }}
+            >
+              Next Step
+            </button>
           </Link>
         </div>
       </div>
@@ -38,4 +59,17 @@ class StepTwo extends Component {
   }
 }
 
-export default StepTwo;
+const mapStateToProps = reduxState => {
+  return {
+    ...reduxState
+  };
+};
+
+const mapDispatchToProps = {
+  updateStore
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StepTwo);

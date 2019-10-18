@@ -1,22 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import store from "../store";
+import { connect } from "react-redux";
+import { updateStore } from "../store";
 
 class StepOne extends Component {
-  constructor() {
-    super();
-    const reduxState = store.getState();
-    this.state = {
-      name: reduxState.name,
-      address: reduxState.address,
-      city: reduxState.city,
-      state: reduxState.state,
-      zip: reduxState.zip
-    };
+  componentDidMount() {
+    this.props.updateStore();
   }
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.props.updateStore({ [event.target.name]: event.target.value });
   };
 
   render() {
@@ -25,7 +18,7 @@ class StepOne extends Component {
         <input
           placeholder="Property Name"
           name="name"
-          value={this.state.name}
+          value={this.props.name}
           onChange={e => {
             this.handleChange(e);
           }}
@@ -33,7 +26,7 @@ class StepOne extends Component {
         <input
           placeholder="Address"
           name="address"
-          value={this.state.address}
+          value={this.props.address}
           onChange={e => {
             this.handleChange(e);
           }}
@@ -41,7 +34,7 @@ class StepOne extends Component {
         <input
           placeholder="City"
           name="city"
-          value={this.state.city}
+          value={this.props.city}
           onChange={e => {
             this.handleChange(e);
           }}
@@ -49,7 +42,7 @@ class StepOne extends Component {
         <input
           placeholder="State"
           name="state"
-          value={this.state.state}
+          value={this.props.state}
           onChange={e => {
             this.handleChange(e);
           }}
@@ -57,17 +50,37 @@ class StepOne extends Component {
         <input
           placeholder="Zip Code"
           name="zip"
-          value={this.state.zip}
+          value={this.props.zip}
           onChange={e => {
             this.handleChange(e);
           }}
         />
         <Link to="/wizard/step2">
-          <button>Next Step</button>
+          <button
+            onClick={() => {
+              console.log(this.props);
+              this.props.updateStore({ ...this.props });
+            }}
+          >
+            Next Step
+          </button>
         </Link>
       </div>
     );
   }
 }
 
-export default StepOne;
+const mapStateToProps = reduxState => {
+  return {
+    ...reduxState
+  };
+};
+
+const mapDispatchToProps = {
+  updateStore
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StepOne);

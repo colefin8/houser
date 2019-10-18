@@ -1,8 +1,17 @@
 import React, { Component } from "react";
+import "./Header.css";
+import index from "./index.png";
 
 class Header extends Component {
   render() {
-    return <div>Header</div>;
+    return (
+      <header>
+        <div className="header">
+          <img alt="icon" className="header-img" src={index} />
+          Houser
+        </div>
+      </header>
+    );
   }
 }
 

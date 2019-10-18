@@ -3,15 +3,19 @@ import { Switch, Route, Link } from "react-router-dom";
 import StepOne from "../StepOne";
 import StepTwo from "../StepTwo";
 import StepThree from "../StepThree";
+import { clearStore } from "../../store";
+import "./Wizard.css";
 
 class Wizard extends Component {
   render() {
     return (
-      <div>
-        Wizard
-        <Link to="/">
-          <button>Cancel</button>
-        </Link>
+      <div className="wizard">
+        <div className="wizardHeader">
+          <h1>Add New Listing</h1>
+          <Link to="/">
+            <button onClick={() => clearStore()}>Cancel</button>
+          </Link>
+        </div>
         <Switch>
           <Route component={StepOne} path="/wizard/step1" />
           <Route component={StepTwo} path="/wizard/step2/" />

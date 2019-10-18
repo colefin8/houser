@@ -1,0 +1,13 @@
+.wizard {
+  margin-top: 75px;
+  font-family: "Open Sans", sans-serif;
+  background-color: #afd4c0;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.wizardHeader {
+  display: flex;
+}
