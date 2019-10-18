@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateStore } from "../store";
+import "../Components/Wizard/Wizard.css";
 
 class StepTwo extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class StepTwo extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wizardBody">
         <input
           placeholder="image url"
           name="img"
@@ -35,6 +36,7 @@ class StepTwo extends Component {
         <div>
           <Link to="/wizard/step1">
             <button
+              className="wizardButtons"
               onClick={() => {
                 console.log(this.props);
                 this.props.updateStore({ ...this.props });
@@ -45,6 +47,7 @@ class StepTwo extends Component {
           </Link>
           <Link to="/wizard/step3">
             <button
+              className="wizardButtons"
               onClick={() => {
                 console.log(this.props);
                 this.props.updateStore({ ...this.props });

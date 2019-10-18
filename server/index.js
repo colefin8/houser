@@ -3,7 +3,7 @@ const express = require("express"),
   session = require("express-session"),
   massive = require("massive"),
   controller = require("./controller"),
-  { SERVER_PORT, SESSION_SECRET, CONNECTION_STRING } = process.env,
+  { SERVER_PORT, CONNECTION_STRING } = process.env,
   app = express();
 
 app.use(express.json());

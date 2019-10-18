@@ -19,6 +19,7 @@ h2 {
 }
 
 .textbox {
+  font-size: 18px;
   width: 75%;
   background-color: #dedede;
   text-align: left;
@@ -34,9 +35,6 @@ h2 {
 }
 
 .xbutton {
-  position: relative;
-  right: 4px;
-  display: inline-block;
   background-color: #dedede;
   background-color: transparent;
   border: none;
@@ -46,4 +44,8 @@ h2 {
 .preview {
   width: 350px;
   height: 184px;
+}
+
+.bold {
+  font-weight: bolder;
 }

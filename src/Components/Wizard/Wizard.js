@@ -12,11 +12,13 @@ class Wizard extends Component {
       <div className="wizard">
         <div className="wizardHeader">
           <h1>Add New Listing</h1>
-          <Link to="/">
-            <button onClick={() => clearStore()}>Cancel</button>
+          <Link className="cancelLink" to="/">
+            <button className="cancelButton" onClick={() => clearStore()}>
+              Cancel
+            </button>
           </Link>
         </div>
-        <Switch>
+        <Switch className="wizardBody">
           <Route component={StepOne} path="/wizard/step1" />
           <Route component={StepTwo} path="/wizard/step2/" />
           <Route component={StepThree} path="/wizard/step3" />

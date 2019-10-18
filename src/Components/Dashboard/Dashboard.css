@@ -31,12 +31,15 @@ h3 {
   box-sizing: border-box;
 }
 
+.newLink {
+  margin: 20px 0 20px 20px;
+}
+
 .newProperty {
   width: 220px;
   height: 45px;
   font-size: 20px;
   font-weight: 750;
-  margin: 20px 0 20px 20px;
   border: none;
   color: black;
   background-color: #8aea92;

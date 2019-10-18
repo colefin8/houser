@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateStore } from "../store";
+import "../Components/Wizard/Wizard.css";
 
 class StepOne extends Component {
   componentDidMount() {
@@ -14,7 +15,7 @@ class StepOne extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wizardBody">
         <input
           placeholder="Property Name"
           name="name"
@@ -39,24 +40,29 @@ class StepOne extends Component {
             this.handleChange(e);
           }}
         />
-        <input
-          placeholder="State"
-          name="state"
-          value={this.props.state}
-          onChange={e => {
-            this.handleChange(e);
-          }}
-        />
-        <input
-          placeholder="Zip Code"
-          name="zip"
-          value={this.props.zip}
-          onChange={e => {
-            this.handleChange(e);
-          }}
-        />
+        <div className="stateZip">
+          <input
+            id="state"
+            placeholder="State"
+            name="state"
+            value={this.props.state}
+            onChange={e => {
+              this.handleChange(e);
+            }}
+          />
+          <input
+            id="zip"
+            placeholder="Zip Code"
+            name="zip"
+            value={this.props.zip}
+            onChange={e => {
+              this.handleChange(e);
+            }}
+          />
+        </div>
         <Link to="/wizard/step2">
           <button
+            className="wizardButtons"
             onClick={() => {
               console.log(this.props);
               this.props.updateStore({ ...this.props });

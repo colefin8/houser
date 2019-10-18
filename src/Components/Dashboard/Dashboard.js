@@ -32,11 +32,12 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log(this.state.houses);
     return (
       <div className="dashboard">
         <div className="littleHeader">
           <h1>Dashboard</h1>
-          <Link to="/wizard/step1">
+          <Link className="newLink" to="/wizard/step1">
             <button className="newProperty">Add New Property</button>
           </Link>
         </div>
@@ -48,6 +49,7 @@ class Dashboard extends Component {
               key={`housekey${i}`}
               id={e.id}
               name={e.name}
+              city={e.city}
               address={e.address}
               img={e.img}
               mortgage={e.mortgage}

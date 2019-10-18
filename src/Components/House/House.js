@@ -29,8 +29,8 @@ class House extends Component {
                 : "http://securitysolutionsdubai.com/wp-content/uploads/2016/04/dummy-post-horisontal-thegem-blog-default-medium.jpg"
             }
           />
-          <p>{`Monthly mortgage amount: ${this.props.mortgage}`}</p>
-          <p>{`Desired rent amount: ${this.props.rent}`}</p>
+          <p>{`Monthly mortgage amount: $${this.props.mortgage}`}</p>
+          <p>{`Desired rent amount: $${this.props.rent}`}</p>
         </div>
       </div>
     );

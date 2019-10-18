@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateStore } from "../store";
 import axios from "axios";
+import "../Components/Wizard/Wizard.css";
 
 class StepThree extends Component {
   componentDidMount() {
@@ -31,7 +32,7 @@ class StepThree extends Component {
 
   render() {
     return (
-      <div>
+      <div className="wizardBody">
         <input
           placeholder="monthly mortgage amount"
           name="mortgage"
@@ -51,6 +52,7 @@ class StepThree extends Component {
         <div>
           <Link to="/wizard/step2">
             <button
+              className="wizardButtons"
               onClick={() => {
                 console.log(this.props);
                 this.props.updateStore({ ...this.props });
@@ -60,6 +62,7 @@ class StepThree extends Component {
             </button>
           </Link>
           <button
+            className="wizardButtons"
             onClick={() => {
               this.addHouse();
               this.props.updateStore();
